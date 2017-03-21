@@ -1,0 +1,136 @@
+;
+; Windows XP/Server 2003/2008/2012/Vista/7/8 , PRINTER DRIVER SETUP INFORMATION FILE
+;                                Copyright(C) 2005-2012 RICOH CO.,LTD.
+;
+
+[Version]
+Signature		= "$Windows NT$"
+Class			= Printer
+ClassGUID		= {4D36E979-E325-11CE-BFC1-08002BE10318}
+Provider		= %PROVIDER%
+DriverVer		= 11/26/2012,1.02.1126.0
+CatalogFile     = GFE6.CAT
+
+; Manufacturer Sections
+;
+; This section lists all of the manufacturers that we will
+; display in the Dialog box.
+;
+[Manufacturer]
+%RICOHSTRING%=RICOH_PROVIDER,ntamd64
+%GENERICSTRING%=GENERIC_PROVIDER,ntamd64
+%NRGSTRING%=NRG_PROVIDER,ntamd64
+
+
+;
+; Model Sections
+;
+; These sections correspond with an entry listed in the
+; [Manufacturer] section above. The models will be displayed in the order
+; that they appear here.
+;
+
+[RICOH_PROVIDER]
+%RICOH%=DTC6CZOLO,USBPRINT\RICOHAficio_SP_C242S7C4F, RICOHAficio_SP_C242S7C4F
+
+[RICOH_PROVIDER.ntamd64]
+%RICOH%=DTC6CZOLO,USBPRINT\RICOHAficio_SP_C242S7C4F, RICOHAficio_SP_C242S7C4F
+
+[GENERIC_PROVIDER]
+%GENERIC%=DTC6CZOLO,USBPRINT\SPC242SFE630, SPC242SFE630
+
+[GENERIC_PROVIDER.ntamd64]
+%GENERIC%=DTC6CZOLO,USBPRINT\SPC242SFE630, SPC242SFE630
+
+[NRG_PROVIDER]
+%NRG%=DTC6CZOLO,USBPRINT\NRGSP_C242SF4339, NRGSP_C242SF4339
+
+[NRG_PROVIDER.ntamd64]
+%NRG%=DTC6CZOLO,USBPRINT\NRGSP_C242SF4339, NRGSP_C242SF4339
+
+[PrinterPackageInstallation.amd64]
+PackageAware=TRUE
+
+;
+; Installer Sections
+;
+; These sections control file installation, and reference all files that
+; need to be copied. The section name will be assumed to be the driver data
+; file, unless there is an explicit DataFile section listed.
+;
+; Also note the ".NT" or ".WIN" notation. This is done to allow for a single INF to
+; work on Win9x and WinNT. When this format is used, the DataFile must be declared explicitly.
+; Win95 does not support this notation, so the old format is used.
+; See the latest WinNT DDK for more info.
+;
+
+[DTC6CZOLO]
+CopyFiles=DTC6CZOLO_COPY
+DriverFile=GFE6AD.DLL
+ConfigFile=GFE6AU.DLL
+DataFile=GFE6A.CFG
+HelpFile=GFE6A.CHM
+LanguageMonitor="GFE6AM Language Monitor,GFE6AM.DLL"
+
+; Copy Sections
+;
+; Lists of files that are actually copied. These sections are referenced
+; from the installer sections above. Only create a section if it contains
+; two or more files (if we only copy a single file, identify it in the
+; installer sect1Gion, using the @filename notation) or if it's a color
+; profile (since the DestinationDirs can only handle sections, and not
+; individual files).
+;
+
+[DTC6CZOLO_COPY]
+GFE6AD.DLL
+GFE6A.CFG
+GFE6A.CHM
+GFE6AU.DLL
+GFE6AR.DLL
+GFE6AM.DLL
+GFE6DBG.ini
+
+;
+; Call SetupSetDirectoryId with 66000 to set the target directory at runtime
+; (depending on which environment drivers are getting installed)
+;
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+;
+; diskid = description,tagfile,unused,subdir
+;
+[SourceDisksNames]
+1 = %Floppy%
+
+;
+; filename_on_source = diskid,subdir,size,checksum,spare,spare
+; extra fields are nt-specific
+;   bootmediaord,targetdirectory,upgradedisposition,textmodedisposition,targetname
+;
+
+[SourceDisksFiles]
+;D,S,S,C,-,-,B,T, U T T
+GFE6AD.DLL  	= 1
+GFE6A.CFG   	= 1
+GFE6A.CHM   	= 1
+GFE6AU.DLL  	= 1
+GFE6AR.DLL  	= 1
+GFE6AM.DLL  	= 1
+GFE6DBG.ini	= 1
+
+;
+; Localizable Strings
+;
+
+[Strings]
+PROVIDER="RICOH"
+RICOH="RICOH Aficio SP C242SF PCL 6"
+GENERIC="SP C242SF PCL 6"
+NRG="NRG SP C242SF PCL 6"
+RICOHSTRING="RICOH"
+GENERICSTRING="SP"
+NRGSTRING="NRG"
+Floppy="C242SF PCL 6 Driver"
