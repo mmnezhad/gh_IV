@@ -1,4 +1,4 @@
-%
+%%%%%%%%%%%%%%%%%%%%%%%
 % Main script that reads controller data and laser data
 %
 clear all;
