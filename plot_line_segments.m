@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% test2
-% function plot_line_segments(NODES, LINES)
+% function plot_line_segments(NODES, LINES) MEhdi
 %
 % Plots the line segements in matrix, LINES, in the current figure
 %
