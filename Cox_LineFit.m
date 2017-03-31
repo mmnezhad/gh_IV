@@ -1,6 +1,6 @@
 function [ddx,ddy,dda,C] = Cox_LineFit(ANG, DIS, RobotPose,SensorPose, LINEMODEL)
 
-    % robot and sensor pose  ...
+    % robot and sensor pose  ... test
     Rx_ = RobotPose(1,1); Ry_ = RobotPose(2,1); Ra_ = RobotPose(3,1); 
     sALFA = SensorPose(1); sBETA = SensorPose(2); sGAMMA = SensorPose(3);
     U= LINEMODEL(:,1:2);
